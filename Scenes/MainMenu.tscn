@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgmqqu08l2ykq"]
+
+[ext_resource type="FontFile" uid="uid://w8ct2lq2e77g" path="res://Fonts/Lexend.ttf" id="1_tt5f1"]
+[ext_resource type="Theme" uid="uid://undiofb8wxvo" path="res://Themes/ButtonTheme.tres" id="2_853f1"]
+[ext_resource type="Script" uid="uid://remmfekjb2mt" path="res://Scripts/SceneSwitcher.cs" id="3_8saeu"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterUI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="CenterUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -418.0
+offset_top = -326.5
+offset_right = 418.0
+offset_bottom = -87.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_tt5f1")
+theme_override_font_sizes/font_size = 191
+text = "Polygons"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="CenterUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -242.0
+offset_right = 242.0
+offset_bottom = 304.0
+grow_horizontal = 2
+theme_override_constants/separation = 20
+
+[node name="PlayButton" type="Button" parent="CenterUI/Buttons"]
+custom_minimum_size = Vector2(0, 142.625)
+layout_mode = 2
+theme = ExtResource("2_853f1")
+text = "Play"
+script = ExtResource("3_8saeu")
+ScenePath = "res://Scenes/Game.tscn"
+
+[node name="OnlineLevelsButton" type="Button" parent="CenterUI/Buttons"]
+custom_minimum_size = Vector2(0, 142.625)
+layout_mode = 2
+theme = ExtResource("2_853f1")
+text = "Online Levels"
+script = ExtResource("3_8saeu")
+ScenePath = "res://Scenes/OnlineLevelsMenu.tscn"
