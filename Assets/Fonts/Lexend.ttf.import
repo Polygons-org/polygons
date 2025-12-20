@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://w8ct2lq2e77g"
-path="res://.godot/imported/Lexend.ttf-3ae1d24aa2d81b31d90927754ba596f5.fontdata"
+path="res://.godot/imported/Lexend.ttf-24dc93219aad82c79ac6c5a3a32b30c1.fontdata"
 
 [deps]
 
-source_file="res://Fonts/Lexend.ttf"
-dest_files=["res://.godot/imported/Lexend.ttf-3ae1d24aa2d81b31d90927754ba596f5.fontdata"]
+source_file="res://Assets/Fonts/Lexend.ttf"
+dest_files=["res://.godot/imported/Lexend.ttf-24dc93219aad82c79ac6c5a3a32b30c1.fontdata"]
 
 [params]
 

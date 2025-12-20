@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=6 format=3 uid="uid://undiofb8wxvo"]
 
-[ext_resource type="FontFile" uid="uid://w8ct2lq2e77g" path="res://Fonts/Lexend.ttf" id="1_0kw57"]
+[ext_resource type="FontFile" uid="uid://w8ct2lq2e77g" path="res://Assets/Fonts/Lexend.ttf" id="1_0kw57"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8saeu"]
 bg_color = Color(0.69135684, 0.6913568, 0.6913567, 1)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bgmqqu08l2ykq"]
 
-[ext_resource type="FontFile" uid="uid://w8ct2lq2e77g" path="res://Fonts/Lexend.ttf" id="1_tt5f1"]
+[ext_resource type="FontFile" uid="uid://w8ct2lq2e77g" path="res://Assets/Fonts/Lexend.ttf" id="1_tt5f1"]
 [ext_resource type="Theme" uid="uid://undiofb8wxvo" path="res://Themes/ButtonTheme.tres" id="2_853f1"]
 [ext_resource type="Script" uid="uid://remmfekjb2mt" path="res://Scripts/SceneSwitcher.cs" id="3_8saeu"]
 

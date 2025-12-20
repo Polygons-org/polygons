@@ -1,14 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cieh3iusppkxt"]
+[gd_scene load_steps=6 format=3 uid="uid://cieh3iusppkxt"]
 
 [ext_resource type="Script" uid="uid://kefblqd0sfi3" path="res://Scripts/Player.cs" id="1_iukft"]
+[ext_resource type="Script" uid="uid://fbenmwf71kj5" path="res://Scripts/Game.cs" id="1_j5yw3"]
+[ext_resource type="Texture2D" uid="uid://7cd4xsbpfo21" path="res://Assets/Textures/Other/Ground.png" id="2_kldst"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cg2ps"]
-size = Vector2(1920, 223)
+size = Vector2(1920, 283)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iukft"]
 size = Vector2(119, 119)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_j5yw3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 503)
@@ -16,24 +19,61 @@ position = Vector2(960, 503)
 [node name="Ground" type="Node2D" parent="."]
 position = Vector2(0, 1005)
 
-[node name="ColorRect" type="ColorRect" parent="Ground"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -222.0
-offset_right = 1920.0
-offset_bottom = 1.0
-grow_vertical = 0
-color = Color(0.3403393, 0.34033933, 0.3403393, 1)
+[node name="Texture" type="Node2D" parent="Ground"]
+
+[node name="Ground0" type="Sprite2D" parent="Ground/Texture"]
+position = Vector2(-134, -141)
+scale = Vector2(0.3525, 0.3525)
+texture = ExtResource("2_kldst")
+
+[node name="Ground1" type="Sprite2D" parent="Ground/Texture"]
+position = Vector2(141, -141)
+scale = Vector2(0.3525, 0.3525)
+texture = ExtResource("2_kldst")
+
+[node name="Ground2" type="Sprite2D" parent="Ground/Texture"]
+position = Vector2(416, -141)
+scale = Vector2(0.3525, 0.3525)
+texture = ExtResource("2_kldst")
+
+[node name="Ground3" type="Sprite2D" parent="Ground/Texture"]
+position = Vector2(691, -141)
+scale = Vector2(0.3525, 0.3525)
+texture = ExtResource("2_kldst")
+
+[node name="Ground4" type="Sprite2D" parent="Ground/Texture"]
+position = Vector2(966, -141)
+scale = Vector2(0.3525, 0.3525)
+texture = ExtResource("2_kldst")
+
+[node name="Ground5" type="Sprite2D" parent="Ground/Texture"]
+position = Vector2(1241, -141)
+scale = Vector2(0.3525, 0.3525)
+texture = ExtResource("2_kldst")
+
+[node name="Ground6" type="Sprite2D" parent="Ground/Texture"]
+position = Vector2(1516, -141)
+scale = Vector2(0.3525, 0.3525)
+texture = ExtResource("2_kldst")
+
+[node name="Ground7" type="Sprite2D" parent="Ground/Texture"]
+position = Vector2(1790, -141)
+scale = Vector2(0.3525, 0.3525)
+texture = ExtResource("2_kldst")
+
+[node name="Ground8" type="Sprite2D" parent="Ground/Texture"]
+position = Vector2(2065, -141)
+scale = Vector2(0.3525, 0.3525)
+texture = ExtResource("2_kldst")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D"]
-position = Vector2(960, -110.5)
+position = Vector2(960, -140.5)
 shape = SubResource("RectangleShape2D_cg2ps")
 
 [node name="Player" type="Node2D" parent="."]
-position = Vector2(568, 723)
+position = Vector2(570, 663)
 script = ExtResource("1_iukft")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="Player"]
