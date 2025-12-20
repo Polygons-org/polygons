@@ -21,6 +21,11 @@ position = Vector2(0, 1005)
 
 [node name="Texture" type="Node2D" parent="Ground"]
 
+[node name="Ground9" type="Sprite2D" parent="Ground/Texture"]
+position = Vector2(-409, -141)
+scale = Vector2(0.3525, 0.3525)
+texture = ExtResource("2_kldst")
+
 [node name="Ground0" type="Sprite2D" parent="Ground/Texture"]
 position = Vector2(-134, -141)
 scale = Vector2(0.3525, 0.3525)
@@ -77,7 +82,7 @@ position = Vector2(570, 663)
 script = ExtResource("1_iukft")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="Player"]
-gravity_scale = 2.275
+gravity_scale = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/RigidBody2D"]
 position = Vector2(0.5, 0.5)

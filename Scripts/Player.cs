@@ -7,13 +7,15 @@ public partial class Player : Node2D {
     public override void _PhysicsProcess(double delta) {
         RigidBody2D RigidBody = GetNode<RigidBody2D>("RigidBody2D");
         Camera2D Camera = GetNode<Camera2D>("/root/Game/Camera2D");
+        StaticBody2D GroundHitbox = GetNode<StaticBody2D>("/root/Game/Ground/StaticBody2D");
 
         // Constantly moves the player to the right and makes the camera follow
         RigidBody.LinearVelocity = new Vector2(800, RigidBody.LinearVelocity.Y);
         Camera.Position = new Vector2(RigidBody.Position.X + 960, Camera.Position.Y);
+        GroundHitbox.Position = new Vector2(RigidBody.Position.X, GroundHitbox.Position.Y);
 
         if (Input.IsActionJustPressed("Jump") && IsOnGround(RigidBody)) {
-            RigidBody.ApplyImpulse(Vector2.Up * 1000, Vector2.Zero);
+            RigidBody.ApplyImpulse(Vector2.Up * 1600, Vector2.Zero);
         }
 
         // Kills the player if they hit a wall
@@ -22,7 +24,7 @@ public partial class Player : Node2D {
         if (IsOnGround(RigidBody)) {
             RigidBody.RotationDegrees = 0;
         } else {
-            RigidBody.RotationDegrees += 3.5f;
+            RigidBody.RotationDegrees += 5f;
         }
     }
 

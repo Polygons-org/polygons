@@ -11,5 +11,13 @@ public partial class Game : Node2D {
         for (int i = 0; i <= 8; i++) {
             GetNode<Sprite2D>($"Ground/Texture/Ground{i}").Modulate = new Color(GroundRed / 255f, GroundGreen / 255f, GroundBlue / 255f);
         }
+
+        for (int i = 0; i <= 8; i++) {
+            Sprite2D Sprite = GetNode<Sprite2D>($"Ground/Texture/Ground{i}");
+
+            if (Sprite.GlobalPosition.X < GetNode<Camera2D>("Camera2D").GlobalPosition.X - 1260) {
+                Sprite.GlobalPosition += new Vector2((281.6f * 9f) - (7 * 9), 0);
+            }
+        }
     }
 }
