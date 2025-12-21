@@ -102,6 +102,3 @@ color = Color(0, 1, 0, 1)
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_j5yw3")
 debug_color = Color(0, 0, 1, 0.41960785)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(1578, 663)
