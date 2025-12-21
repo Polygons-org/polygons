@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cieh3iusppkxt"]
+[gd_scene load_steps=6 format=3 uid="uid://cieh3iusppkxt"]
 
 [ext_resource type="Script" uid="uid://kefblqd0sfi3" path="res://Scripts/Player.cs" id="1_iukft"]
 [ext_resource type="Script" uid="uid://fbenmwf71kj5" path="res://Scripts/Game.cs" id="1_j5yw3"]
@@ -8,9 +8,6 @@
 size = Vector2(1920, 283)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5yw3"]
-size = Vector2(119, 119)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kldst"]
 size = Vector2(119, 119)
 
 [node name="Game" type="Node2D"]
@@ -108,14 +105,3 @@ debug_color = Color(0, 0, 1, 0.41960785)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(1578, 663)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_kldst")
-debug_color = Color(0, 0, 1, 0.41960785)
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(1578, 543)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
-shape = SubResource("RectangleShape2D_kldst")
-debug_color = Color(0, 0, 1, 0.41960785)
