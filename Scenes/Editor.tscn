@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://di2wyiytpjcu0"]
+
+[ext_resource type="Theme" uid="uid://undiofb8wxvo" path="res://Themes/ButtonTheme.tres" id="1_0hhuw"]
+
+[node name="Editor" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ObjectPicker" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -325.0
+offset_right = 1920.0
+offset_bottom = 3.0
+grow_vertical = 0
+color = Color(1, 1, 1, 0.09803922)
+
+[node name="Tabs" type="Control" parent="CanvasLayer/ObjectPicker"]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BuildButton" type="Button" parent="CanvasLayer/ObjectPicker/Tabs"]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 312.0
+offset_bottom = 152.0
+theme = ExtResource("1_0hhuw")
+text = "Build"
+
+[node name="EditButton" type="Button" parent="CanvasLayer/ObjectPicker/Tabs"]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 176.0
+offset_right = 312.0
+offset_bottom = 312.0
+theme = ExtResource("1_0hhuw")
+text = "Edit"
+
+[node name="Seperator" type="ColorRect" parent="CanvasLayer/ObjectPicker"]
+layout_mode = 0
+offset_left = 328.0
+offset_right = 331.0
+offset_bottom = 328.0

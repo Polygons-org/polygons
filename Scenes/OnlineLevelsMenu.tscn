@@ -33,6 +33,8 @@ custom_minimum_size = Vector2(350, 350)
 layout_mode = 2
 theme = ExtResource("1_tan6e")
 text = "Editor"
+script = ExtResource("2_nedrh")
+ScenePath = "res://Scenes/Editor.tscn"
 
 [node name="SearchButton" type="Button" parent="ButtonGrid"]
 custom_minimum_size = Vector2(350, 350)
