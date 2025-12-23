@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cieh3iusppkxt"]
+[gd_scene load_steps=7 format=3 uid="uid://cieh3iusppkxt"]
 
 [ext_resource type="Script" uid="uid://kefblqd0sfi3" path="res://Scripts/Player.cs" id="1_iukft"]
 [ext_resource type="Script" uid="uid://fbenmwf71kj5" path="res://Scripts/Game.cs" id="1_j5yw3"]
+[ext_resource type="Texture2D" uid="uid://mpgrvyoruipn" path="res://Assets/Textures/Other/DefaultBG.png" id="2_b2bpf"]
 [ext_resource type="Texture2D" uid="uid://7cd4xsbpfo21" path="res://Assets/Textures/Other/Ground.png" id="2_kldst"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cg2ps"]
@@ -15,6 +16,20 @@ script = ExtResource("1_j5yw3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 503)
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="BG0" type="Sprite2D" parent="Background"]
+position = Vector2(-960, 467)
+texture = ExtResource("2_b2bpf")
+
+[node name="BG1" type="Sprite2D" parent="Background"]
+position = Vector2(960, 467)
+texture = ExtResource("2_b2bpf")
+
+[node name="BG2" type="Sprite2D" parent="Background"]
+position = Vector2(2880, 467)
+texture = ExtResource("2_b2bpf")
 
 [node name="Ground" type="Node2D" parent="."]
 position = Vector2(0, 1005)
