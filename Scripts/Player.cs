@@ -14,7 +14,7 @@ public partial class Player : Node2D {
         Camera.Position = new Vector2(RigidBody.Position.X + 960, Camera.Position.Y);
         GroundHitbox.Position = new Vector2(RigidBody.Position.X, GroundHitbox.Position.Y);
 
-        if (Input.IsActionJustPressed("Jump") && IsOnGround(RigidBody)) {
+        if (Input.IsActionPressed("Jump") && IsOnGround(RigidBody)) {
             RigidBody.ApplyImpulse(Vector2.Up * 1600, Vector2.Zero);
         }
 
