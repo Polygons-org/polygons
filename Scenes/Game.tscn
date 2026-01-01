@@ -93,7 +93,7 @@ position = Vector2(960, -140.5)
 shape = SubResource("RectangleShape2D_cg2ps")
 
 [node name="Player" type="Node2D" parent="."]
-position = Vector2(570, 663)
+position = Vector2(0, 663)
 script = ExtResource("1_iukft")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="Player"]

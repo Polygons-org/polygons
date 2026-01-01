@@ -4,7 +4,7 @@ using System;
 public partial class Game : Node2D {
     public override void _Process(double delta) {
 
-        for (int i = 0; i <= 8; i++) {
+        for (int i = 0; i <= 9; i++) {
             GetNode<Sprite2D>($"Ground/Texture/Ground{i}").Modulate = new Color(Globals.GroundRed / 255f, Globals.GroundGreen / 255f, Globals.GroundBlue / 255f);
         }
 

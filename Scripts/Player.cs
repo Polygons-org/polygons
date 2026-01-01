@@ -11,7 +11,7 @@ public partial class Player : Node2D {
 
         // Constantly moves the player to the right and makes the camera follow
         RigidBody.LinearVelocity = new Vector2(800, RigidBody.LinearVelocity.Y);
-        Camera.Position = new Vector2(RigidBody.Position.X + 960, Camera.Position.Y);
+        Camera.Position = new Vector2(RigidBody.Position.X + 500, Camera.Position.Y);
         GroundHitbox.Position = new Vector2(RigidBody.Position.X, GroundHitbox.Position.Y);
 
         if (Input.IsActionPressed("Jump") && IsOnGround(RigidBody)) {
