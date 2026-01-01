@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://di2wyiytpjcu0"]
+[gd_scene load_steps=4 format=3 uid="uid://di2wyiytpjcu0"]
 
 [ext_resource type="Theme" uid="uid://undiofb8wxvo" path="res://Themes/ButtonTheme.tres" id="1_0hhuw"]
+[ext_resource type="Script" uid="uid://b3qyh43rby1k0" path="res://Scripts/Editor.cs" id="1_6ykgs"]
+[ext_resource type="Texture2D" uid="uid://mpgrvyoruipn" path="res://Assets/Textures/Other/DefaultBG.png" id="1_trcuy"]
 
 [node name="Editor" type="Node2D"]
+script = ExtResource("1_6ykgs")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 465)
+texture = ExtResource("1_trcuy")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -14,7 +21,7 @@ offset_top = -325.0
 offset_right = 1920.0
 offset_bottom = 3.0
 grow_vertical = 0
-color = Color(1, 1, 1, 0.09803922)
+color = Color(0, 0, 0, 0.36862746)
 
 [node name="Tabs" type="Control" parent="CanvasLayer/ObjectPicker"]
 layout_mode = 1
