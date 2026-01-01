@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://di2wyiytpjcu0"]
+[gd_scene load_steps=5 format=3 uid="uid://di2wyiytpjcu0"]
 
 [ext_resource type="Theme" uid="uid://undiofb8wxvo" path="res://Themes/ButtonTheme.tres" id="1_0hhuw"]
 [ext_resource type="Script" uid="uid://b3qyh43rby1k0" path="res://Scripts/Editor.cs" id="1_6ykgs"]
 [ext_resource type="Texture2D" uid="uid://mpgrvyoruipn" path="res://Assets/Textures/Other/DefaultBG.png" id="1_trcuy"]
+[ext_resource type="Texture2D" uid="uid://7cd4xsbpfo21" path="res://Assets/Textures/Other/Ground.png" id="3_6ykgs"]
 
 [node name="Editor" type="Node2D"]
 script = ExtResource("1_6ykgs")
@@ -10,6 +11,54 @@ script = ExtResource("1_6ykgs")
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(960, 465)
 texture = ExtResource("1_trcuy")
+
+[node name="Ground" type="Node2D" parent="."]
+position = Vector2(0, 1008)
+
+[node name="Ground0" type="Sprite2D" parent="Ground"]
+position = Vector2(-134, -141)
+scale = Vector2(0.3525, 0.3525)
+texture = ExtResource("3_6ykgs")
+
+[node name="Ground1" type="Sprite2D" parent="Ground"]
+position = Vector2(141, -141)
+scale = Vector2(0.3525, 0.3525)
+texture = ExtResource("3_6ykgs")
+
+[node name="Ground2" type="Sprite2D" parent="Ground"]
+position = Vector2(416, -141)
+scale = Vector2(0.3525, 0.3525)
+texture = ExtResource("3_6ykgs")
+
+[node name="Ground3" type="Sprite2D" parent="Ground"]
+position = Vector2(691, -141)
+scale = Vector2(0.3525, 0.3525)
+texture = ExtResource("3_6ykgs")
+
+[node name="Ground4" type="Sprite2D" parent="Ground"]
+position = Vector2(966, -141)
+scale = Vector2(0.3525, 0.3525)
+texture = ExtResource("3_6ykgs")
+
+[node name="Ground5" type="Sprite2D" parent="Ground"]
+position = Vector2(1241, -141)
+scale = Vector2(0.3525, 0.3525)
+texture = ExtResource("3_6ykgs")
+
+[node name="Ground6" type="Sprite2D" parent="Ground"]
+position = Vector2(1516, -141)
+scale = Vector2(0.3525, 0.3525)
+texture = ExtResource("3_6ykgs")
+
+[node name="Ground7" type="Sprite2D" parent="Ground"]
+position = Vector2(1790, -141)
+scale = Vector2(0.3525, 0.3525)
+texture = ExtResource("3_6ykgs")
+
+[node name="Ground8" type="Sprite2D" parent="Ground"]
+position = Vector2(2065, -141)
+scale = Vector2(0.3525, 0.3525)
+texture = ExtResource("3_6ykgs")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
