@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgmqqu08l2ykq"]
+[gd_scene load_steps=5 format=3 uid="uid://bgmqqu08l2ykq"]
 
+[ext_resource type="Script" uid="uid://bmxb4tsp56btx" path="res://Scripts/MainMenu.cs" id="1_ghw46"]
 [ext_resource type="FontFile" uid="uid://w8ct2lq2e77g" path="res://Assets/Fonts/Lexend.ttf" id="1_tt5f1"]
 [ext_resource type="Theme" uid="uid://undiofb8wxvo" path="res://Themes/ButtonTheme.tres" id="2_853f1"]
 [ext_resource type="Script" uid="uid://remmfekjb2mt" path="res://Scripts/SceneSwitcher.cs" id="3_8saeu"]
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ghw46")
 
 [node name="CenterUI" type="Control" parent="."]
 layout_mode = 1
@@ -71,3 +73,41 @@ theme = ExtResource("2_853f1")
 text = "Online Levels"
 script = ExtResource("3_8saeu")
 ScenePath = "res://Scenes/OnlineLevelsMenu.tscn"
+
+[node name="VersionText" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="ClientVersion" type="Label" parent="VersionText"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_tt5f1")
+theme_override_font_sizes/font_size = 61
+text = "Version: {ClientVer}"
+horizontal_alignment = 2
+
+[node name="LatestVersion" type="Label" parent="VersionText"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -787.0
+offset_top = 80.0
+offset_bottom = 157.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_tt5f1")
+theme_override_font_sizes/font_size = 61
+text = "Latest Version: {LatestVer}"
+horizontal_alignment = 2
+
+[node name="HTTPRequest" type="HTTPRequest" parent="VersionText/LatestVersion"]

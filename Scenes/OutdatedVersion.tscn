@@ -1,0 +1,155 @@
+[gd_scene load_steps=7 format=3 uid="uid://btia4dr3iw6aw"]
+
+[ext_resource type="Script" uid="uid://ctwsirsooqnwr" path="res://Scripts/OutdatedVersionLogic.cs" id="1_1ejpl"]
+[ext_resource type="FontFile" uid="uid://w8ct2lq2e77g" path="res://Assets/Fonts/Lexend.ttf" id="1_4oqe8"]
+[ext_resource type="Script" uid="uid://remmfekjb2mt" path="res://Scripts/SceneSwitcher.cs" id="2_1ejpl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0d7pb"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hsdot"]
+bg_color = Color(0.830335, 0.830335, 0.830335, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fy1fk"]
+bg_color = Color(0.95158, 0.95158, 0.95158, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="OutdatedVersion" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1ejpl")
+
+[node name="Header" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -324.0
+offset_right = 20.0
+offset_bottom = -284.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OutdatedVersion" type="Label" parent="Header"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -107.0
+offset_right = 960.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_4oqe8")
+theme_override_font_sizes/font_size = 171
+text = "Outdated Version!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SecondaryText" type="Label" parent="Header"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = 85.0
+offset_right = 960.0
+offset_bottom = 193.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_4oqe8")
+theme_override_font_sizes/font_size = 86
+text = "Please update your client!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UpdateButton" type="Button" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -75.0
+offset_right = 250.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4oqe8")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxFlat_0d7pb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hsdot")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fy1fk")
+text = "Update"
+
+[node name="ContinueButton" type="Button" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 105.0
+offset_right = 250.0
+offset_bottom = 255.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4oqe8")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxFlat_0d7pb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hsdot")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fy1fk")
+text = "Continue"
+script = ExtResource("2_1ejpl")
+ScenePath = "res://Scenes/MainMenu.tscn"
