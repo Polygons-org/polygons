@@ -14,7 +14,10 @@ public partial class SceneSwitcher : Button {
             return;
         }
 
-        var error = GetTree().ChangeSceneToFile(ScenePath);
+        Error error = new();
+        if (Globals.VersionChecked) {
+            error = GetTree().ChangeSceneToFile(ScenePath);
+        }
 
         if (error != Error.Ok) {
             GD.PrintErr("Failed to change scene: " + error);
