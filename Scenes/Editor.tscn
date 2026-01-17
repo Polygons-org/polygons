@@ -110,3 +110,64 @@ layout_mode = 0
 offset_left = 328.0
 offset_right = 331.0
 offset_bottom = 328.0
+
+[node name="Build" type="TabContainer" parent="CanvasLayer/ObjectPicker"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 341.0
+offset_top = -72.0
+offset_right = 1930.0
+offset_bottom = 328.0
+theme_override_font_sizes/font_size = 46
+current_tab = 0
+
+[node name="Basic" type="GridContainer" parent="CanvasLayer/ObjectPicker/Build"]
+layout_mode = 2
+theme_override_constants/h_separation = 13
+theme_override_constants/v_separation = 10
+columns = 14
+metadata/_tab_index = 0
+
+[node name="Button" type="Button" parent="CanvasLayer/ObjectPicker/Build/Basic"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("1_0hhuw")
+
+[node name="Orbs" type="GridContainer" parent="CanvasLayer/ObjectPicker/Build"]
+visible = false
+layout_mode = 2
+theme_override_constants/h_separation = 13
+theme_override_constants/v_separation = 10
+columns = 14
+metadata/_tab_index = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/ObjectPicker/Build/Orbs"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("1_0hhuw")
+
+[node name="Pads" type="GridContainer" parent="CanvasLayer/ObjectPicker/Build"]
+visible = false
+layout_mode = 2
+theme_override_constants/h_separation = 13
+theme_override_constants/v_separation = 10
+columns = 14
+metadata/_tab_index = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/ObjectPicker/Build/Pads"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("1_0hhuw")
+
+[node name="Portals" type="GridContainer" parent="CanvasLayer/ObjectPicker/Build"]
+visible = false
+layout_mode = 2
+theme_override_constants/h_separation = 13
+theme_override_constants/v_separation = 10
+columns = 14
+metadata/_tab_index = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/ObjectPicker/Build/Portals"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("1_0hhuw")
