@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://di2wyiytpjcu0"]
+[gd_scene load_steps=6 format=3 uid="uid://di2wyiytpjcu0"]
 
 [ext_resource type="Theme" uid="uid://undiofb8wxvo" path="res://Themes/ButtonTheme.tres" id="1_0hhuw"]
 [ext_resource type="Script" uid="uid://b3qyh43rby1k0" path="res://Scripts/Editor.cs" id="1_6ykgs"]
 [ext_resource type="Texture2D" uid="uid://mpgrvyoruipn" path="res://Assets/Textures/Other/DefaultBG.png" id="1_trcuy"]
 [ext_resource type="Texture2D" uid="uid://7cd4xsbpfo21" path="res://Assets/Textures/Other/Ground.png" id="3_6ykgs"]
+[ext_resource type="Script" uid="uid://remmfekjb2mt" path="res://Scripts/SceneSwitcher.cs" id="5_dfuwn"]
 
 [node name="Editor" type="Node2D"]
 script = ExtResource("1_6ykgs")
@@ -70,6 +71,20 @@ texture = ExtResource("3_6ykgs")
 position = Vector2(957, 504)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Playtest" type="Button" parent="CanvasLayer"]
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -200.5
+offset_right = 193.0
+offset_bottom = -47.5
+grow_vertical = 2
+theme = ExtResource("1_0hhuw")
+theme_override_font_sizes/font_size = 50
+text = "Play"
 
 [node name="ObjectPicker" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 2
@@ -171,3 +186,64 @@ metadata/_tab_index = 3
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme = ExtResource("1_0hhuw")
+
+[node name="TopRightButtons" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="EditObject" type="Button" parent="CanvasLayer/TopRightButtons"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 0
+offset_left = -351.0
+offset_top = 407.0
+offset_right = 24.0
+offset_bottom = 587.0
+theme = ExtResource("1_0hhuw")
+text = "Edit Object"
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/TopRightButtons"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -391.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 391.0
+grow_horizontal = 0
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
+columns = 2
+
+[node name="Save" type="Button" parent="CanvasLayer/TopRightButtons/GridContainer"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+theme = ExtResource("1_0hhuw")
+text = "Save"
+
+[node name="Back" type="Button" parent="CanvasLayer/TopRightButtons/GridContainer"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+theme = ExtResource("1_0hhuw")
+text = "Back"
+script = ExtResource("5_dfuwn")
+ScenePath = "res://Scenes/OnlineLevelsMenu.tscn"
+
+[node name="Upload" type="Button" parent="CanvasLayer/TopRightButtons/GridContainer"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+theme = ExtResource("1_0hhuw")
+theme_override_font_sizes/font_size = 41
+text = "Upload"
+
+[node name="Options" type="Button" parent="CanvasLayer/TopRightButtons/GridContainer"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+theme = ExtResource("1_0hhuw")
+theme_override_font_sizes/font_size = 40
+text = "Options"
