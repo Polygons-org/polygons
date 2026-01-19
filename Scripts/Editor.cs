@@ -20,19 +20,19 @@ public partial class Editor : Node2D {
             CameraSpeed = 10;
         }
 
-        if (Input.IsKeyPressed(Key.W)) {
+        if (Input.IsKeyPressed(Key.Up)) {
             GetNode<Camera2D>("Camera2D").Position += new Vector2(0, -CameraSpeed);
             GetNode<ColorRect>("StartLine").Position += new Vector2(0, -CameraSpeed);
             GetNode<Sprite2D>("Background").Position += new Vector2(0, -CameraSpeed);
-        } if (Input.IsKeyPressed(Key.S)) {
+        } if (Input.IsKeyPressed(Key.Down)) {
             GetNode<Camera2D>("Camera2D").Position += new Vector2(0, CameraSpeed);
             GetNode<ColorRect>("StartLine").Position += new Vector2(0, CameraSpeed);
             GetNode<Sprite2D>("Background").Position += new Vector2(0, CameraSpeed);
-        } if (Input.IsKeyPressed(Key.A)) {
+        } if (Input.IsKeyPressed(Key.Left)) {
             GetNode<Camera2D>("Camera2D").Position += new Vector2(-CameraSpeed, 0);
             GetNode<Node2D>("Ground").Position += new Vector2(-CameraSpeed, 0);
             GetNode<Sprite2D>("Background").Position += new Vector2(-CameraSpeed, 0);
-        } if (Input.IsKeyPressed(Key.D)) {
+        } if (Input.IsKeyPressed(Key.Right)) {
             GetNode<Camera2D>("Camera2D").Position += new Vector2(CameraSpeed, 0);
             GetNode<Node2D>("Ground").Position += new Vector2(CameraSpeed, 0);
             GetNode<Sprite2D>("Background").Position += new Vector2(CameraSpeed, 0);
