@@ -1,78 +1,98 @@
-[gd_scene load_steps=6 format=3 uid="uid://di2wyiytpjcu0"]
+[gd_scene format=3 uid="uid://di2wyiytpjcu0"]
 
 [ext_resource type="Theme" uid="uid://undiofb8wxvo" path="res://Themes/ButtonTheme.tres" id="1_0hhuw"]
 [ext_resource type="Script" uid="uid://b3qyh43rby1k0" path="res://Scripts/Editor.cs" id="1_6ykgs"]
 [ext_resource type="Texture2D" uid="uid://mpgrvyoruipn" path="res://Assets/Textures/Other/DefaultBG.png" id="1_trcuy"]
 [ext_resource type="Texture2D" uid="uid://7cd4xsbpfo21" path="res://Assets/Textures/Other/Ground.png" id="3_6ykgs"]
+[ext_resource type="Texture2D" uid="uid://bskbblbgv7orq" path="res://Assets/Textures/Objects/Blocks/block.png" id="5_5v8xv"]
 [ext_resource type="Script" uid="uid://remmfekjb2mt" path="res://Scripts/SceneSwitcher.cs" id="5_dfuwn"]
+[ext_resource type="Texture2D" uid="uid://bfsrm551c8vcg" path="res://Assets/Textures/Objects/Orbs/orb.png" id="6_847jc"]
+[ext_resource type="Texture2D" uid="uid://c4drfg6jppttb" path="res://Assets/Textures/Objects/spike.png" id="6_ir51w"]
+[ext_resource type="Texture2D" uid="uid://dxli8ocm1ia0u" path="res://Assets/Textures/Objects/short-spike.png" id="7_fx05v"]
+[ext_resource type="Texture2D" uid="uid://bih10wpd3y1n3" path="res://Assets/Textures/Objects/Pads/pad.png" id="7_ir51w"]
+[ext_resource type="Texture2D" uid="uid://dlqkt2gcin42k" path="res://Assets/Textures/Objects/Portals/cube-portal.png" id="8_fx05v"]
 
-[node name="Editor" type="Node2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brgpd"]
+bg_color = Color(0.67481464, 0.67481464, 0.6748146, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5v8xv"]
+bg_color = Color(0.8346145, 0.8346142, 0.8346143, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Editor" type="Node2D" unique_id=909147291]
 script = ExtResource("1_6ykgs")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=695738141]
 position = Vector2(960, 465)
 texture = ExtResource("1_trcuy")
 
-[node name="StartLine" type="ColorRect" parent="."]
+[node name="StartLine" type="ColorRect" parent="." unique_id=1269175946]
 offset_left = -3.0
 offset_top = -90.0
 offset_right = 3.0
 offset_bottom = 1041.0
 
-[node name="Ground" type="Node2D" parent="."]
+[node name="Ground" type="Node2D" parent="." unique_id=1035705502]
 position = Vector2(0, 1008)
 
-[node name="Ground0" type="Sprite2D" parent="Ground"]
+[node name="Ground0" type="Sprite2D" parent="Ground" unique_id=838590]
 position = Vector2(-134, -141)
 scale = Vector2(0.3525, 0.3525)
 texture = ExtResource("3_6ykgs")
 
-[node name="Ground1" type="Sprite2D" parent="Ground"]
+[node name="Ground1" type="Sprite2D" parent="Ground" unique_id=383678316]
 position = Vector2(141, -141)
 scale = Vector2(0.3525, 0.3525)
 texture = ExtResource("3_6ykgs")
 
-[node name="Ground2" type="Sprite2D" parent="Ground"]
+[node name="Ground2" type="Sprite2D" parent="Ground" unique_id=1203824767]
 position = Vector2(416, -141)
 scale = Vector2(0.3525, 0.3525)
 texture = ExtResource("3_6ykgs")
 
-[node name="Ground3" type="Sprite2D" parent="Ground"]
+[node name="Ground3" type="Sprite2D" parent="Ground" unique_id=334622019]
 position = Vector2(691, -141)
 scale = Vector2(0.3525, 0.3525)
 texture = ExtResource("3_6ykgs")
 
-[node name="Ground4" type="Sprite2D" parent="Ground"]
+[node name="Ground4" type="Sprite2D" parent="Ground" unique_id=7841738]
 position = Vector2(966, -141)
 scale = Vector2(0.3525, 0.3525)
 texture = ExtResource("3_6ykgs")
 
-[node name="Ground5" type="Sprite2D" parent="Ground"]
+[node name="Ground5" type="Sprite2D" parent="Ground" unique_id=386260233]
 position = Vector2(1241, -141)
 scale = Vector2(0.3525, 0.3525)
 texture = ExtResource("3_6ykgs")
 
-[node name="Ground6" type="Sprite2D" parent="Ground"]
+[node name="Ground6" type="Sprite2D" parent="Ground" unique_id=472076891]
 position = Vector2(1516, -141)
 scale = Vector2(0.3525, 0.3525)
 texture = ExtResource("3_6ykgs")
 
-[node name="Ground7" type="Sprite2D" parent="Ground"]
+[node name="Ground7" type="Sprite2D" parent="Ground" unique_id=1530015930]
 position = Vector2(1790, -141)
 scale = Vector2(0.3525, 0.3525)
 texture = ExtResource("3_6ykgs")
 
-[node name="Ground8" type="Sprite2D" parent="Ground"]
+[node name="Ground8" type="Sprite2D" parent="Ground" unique_id=288017963]
 position = Vector2(2065, -141)
 scale = Vector2(0.3525, 0.3525)
 texture = ExtResource("3_6ykgs")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=508149853]
 position = Vector2(957, 504)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=415205868]
 
-[node name="Playtest" type="Button" parent="CanvasLayer"]
+[node name="Playtest" type="Button" parent="CanvasLayer" unique_id=642532273]
 custom_minimum_size = Vector2(100, 100)
 anchors_preset = 4
 anchor_top = 0.5
@@ -86,7 +106,7 @@ theme = ExtResource("1_0hhuw")
 theme_override_font_sizes/font_size = 50
 text = "Play"
 
-[node name="ObjectPicker" type="ColorRect" parent="CanvasLayer"]
+[node name="ObjectPicker" type="ColorRect" parent="CanvasLayer" unique_id=2019061090]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -96,13 +116,13 @@ offset_bottom = 3.0
 grow_vertical = 0
 color = Color(0, 0, 0, 0.36862746)
 
-[node name="Tabs" type="Control" parent="CanvasLayer/ObjectPicker"]
+[node name="Tabs" type="Control" parent="CanvasLayer/ObjectPicker" unique_id=1864206620]
 layout_mode = 1
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="BuildButton" type="Button" parent="CanvasLayer/ObjectPicker/Tabs"]
+[node name="BuildButton" type="Button" parent="CanvasLayer/ObjectPicker/Tabs" unique_id=1539300413]
 layout_mode = 1
 offset_left = 16.0
 offset_top = 16.0
@@ -111,7 +131,7 @@ offset_bottom = 152.0
 theme = ExtResource("1_0hhuw")
 text = "Build"
 
-[node name="EditButton" type="Button" parent="CanvasLayer/ObjectPicker/Tabs"]
+[node name="EditButton" type="Button" parent="CanvasLayer/ObjectPicker/Tabs" unique_id=1174495741]
 layout_mode = 1
 offset_left = 16.0
 offset_top = 176.0
@@ -120,13 +140,13 @@ offset_bottom = 312.0
 theme = ExtResource("1_0hhuw")
 text = "Edit"
 
-[node name="Seperator" type="ColorRect" parent="CanvasLayer/ObjectPicker"]
+[node name="Seperator" type="ColorRect" parent="CanvasLayer/ObjectPicker" unique_id=768566832]
 layout_mode = 0
 offset_left = 328.0
 offset_right = 331.0
 offset_bottom = 328.0
 
-[node name="Build" type="TabContainer" parent="CanvasLayer/ObjectPicker"]
+[node name="Build" type="TabContainer" parent="CanvasLayer/ObjectPicker" unique_id=1929332829]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 341.0
@@ -136,19 +156,50 @@ offset_bottom = 328.0
 theme_override_font_sizes/font_size = 46
 current_tab = 0
 
-[node name="Basic" type="GridContainer" parent="CanvasLayer/ObjectPicker/Build"]
+[node name="Basic" type="GridContainer" parent="CanvasLayer/ObjectPicker/Build" unique_id=1488649344]
 layout_mode = 2
 theme_override_constants/h_separation = 13
 theme_override_constants/v_separation = 10
 columns = 14
 metadata/_tab_index = 0
 
-[node name="Button" type="Button" parent="CanvasLayer/ObjectPicker/Build/Basic"]
+[node name="Block1" type="Button" parent="CanvasLayer/ObjectPicker/Build/Basic" unique_id=1378475670]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme = ExtResource("1_0hhuw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
 
-[node name="Orbs" type="GridContainer" parent="CanvasLayer/ObjectPicker/Build"]
+[node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Basic/Block1" unique_id=48473219]
+position = Vector2(50, 50)
+scale = Vector2(0.09375, 0.09375)
+texture = ExtResource("5_5v8xv")
+
+[node name="Spike1" type="Button" parent="CanvasLayer/ObjectPicker/Build/Basic" unique_id=1045996449]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("1_0hhuw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+
+[node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Basic/Spike1" unique_id=2073818219]
+position = Vector2(50, 50)
+scale = Vector2(0.09375, 0.09375)
+texture = ExtResource("6_ir51w")
+
+[node name="ShortSpike1" type="Button" parent="CanvasLayer/ObjectPicker/Build/Basic" unique_id=274486846]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("1_0hhuw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+
+[node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Basic/ShortSpike1" unique_id=1235595074]
+position = Vector2(50, 50)
+scale = Vector2(0.09375, 0.09375)
+texture = ExtResource("7_fx05v")
+
+[node name="Orbs" type="GridContainer" parent="CanvasLayer/ObjectPicker/Build" unique_id=693354525]
 visible = false
 layout_mode = 2
 theme_override_constants/h_separation = 13
@@ -156,12 +207,19 @@ theme_override_constants/v_separation = 10
 columns = 14
 metadata/_tab_index = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/ObjectPicker/Build/Orbs"]
+[node name="YellowOrb" type="Button" parent="CanvasLayer/ObjectPicker/Build/Orbs" unique_id=1628834105]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme = ExtResource("1_0hhuw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
 
-[node name="Pads" type="GridContainer" parent="CanvasLayer/ObjectPicker/Build"]
+[node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Orbs/YellowOrb" unique_id=1548452897]
+position = Vector2(50, 50)
+scale = Vector2(0.09375, 0.09375)
+texture = ExtResource("6_847jc")
+
+[node name="Pads" type="GridContainer" parent="CanvasLayer/ObjectPicker/Build" unique_id=1542495987]
 visible = false
 layout_mode = 2
 theme_override_constants/h_separation = 13
@@ -169,12 +227,19 @@ theme_override_constants/v_separation = 10
 columns = 14
 metadata/_tab_index = 2
 
-[node name="Button" type="Button" parent="CanvasLayer/ObjectPicker/Build/Pads"]
+[node name="YellowPad" type="Button" parent="CanvasLayer/ObjectPicker/Build/Pads" unique_id=133270172]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme = ExtResource("1_0hhuw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
 
-[node name="Portals" type="GridContainer" parent="CanvasLayer/ObjectPicker/Build"]
+[node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Pads/YellowPad" unique_id=667606723]
+position = Vector2(50, 50)
+scale = Vector2(0.09375, 0.09375)
+texture = ExtResource("7_ir51w")
+
+[node name="Portals" type="GridContainer" parent="CanvasLayer/ObjectPicker/Build" unique_id=639834217]
 visible = false
 layout_mode = 2
 theme_override_constants/h_separation = 13
@@ -182,12 +247,19 @@ theme_override_constants/v_separation = 10
 columns = 14
 metadata/_tab_index = 3
 
-[node name="Button" type="Button" parent="CanvasLayer/ObjectPicker/Build/Portals"]
+[node name="CubePortal" type="Button" parent="CanvasLayer/ObjectPicker/Build/Portals" unique_id=1911338722]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme = ExtResource("1_0hhuw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
 
-[node name="TopRightButtons" type="Control" parent="CanvasLayer"]
+[node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Portals/CubePortal" unique_id=948014535]
+position = Vector2(50, 50)
+scale = Vector2(0.051757805, 0.051757805)
+texture = ExtResource("8_fx05v")
+
+[node name="TopRightButtons" type="Control" parent="CanvasLayer" unique_id=606997229]
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
@@ -196,7 +268,7 @@ offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
 
-[node name="EditObject" type="Button" parent="CanvasLayer/TopRightButtons"]
+[node name="EditObject" type="Button" parent="CanvasLayer/TopRightButtons" unique_id=2029909344]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 offset_left = -351.0
@@ -206,7 +278,7 @@ offset_bottom = 587.0
 theme = ExtResource("1_0hhuw")
 text = "Edit Object"
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/TopRightButtons"]
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/TopRightButtons" unique_id=1303752810]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -220,13 +292,13 @@ theme_override_constants/h_separation = 15
 theme_override_constants/v_separation = 15
 columns = 2
 
-[node name="Save" type="Button" parent="CanvasLayer/TopRightButtons/GridContainer"]
+[node name="Save" type="Button" parent="CanvasLayer/TopRightButtons/GridContainer" unique_id=276130560]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 theme = ExtResource("1_0hhuw")
 text = "Save"
 
-[node name="Back" type="Button" parent="CanvasLayer/TopRightButtons/GridContainer"]
+[node name="Back" type="Button" parent="CanvasLayer/TopRightButtons/GridContainer" unique_id=1619581333]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 theme = ExtResource("1_0hhuw")
@@ -234,14 +306,14 @@ text = "Back"
 script = ExtResource("5_dfuwn")
 ScenePath = "res://Scenes/OnlineLevelsMenu.tscn"
 
-[node name="Upload" type="Button" parent="CanvasLayer/TopRightButtons/GridContainer"]
+[node name="Upload" type="Button" parent="CanvasLayer/TopRightButtons/GridContainer" unique_id=2039606516]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 theme = ExtResource("1_0hhuw")
 theme_override_font_sizes/font_size = 41
 text = "Upload"
 
-[node name="Options" type="Button" parent="CanvasLayer/TopRightButtons/GridContainer"]
+[node name="Options" type="Button" parent="CanvasLayer/TopRightButtons/GridContainer" unique_id=1568136682]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 theme = ExtResource("1_0hhuw")
