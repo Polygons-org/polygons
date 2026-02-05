@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 public partial class Player : Node2D {
-    public static Action Die;
+    public Action Die;
 
     private void ReloadSceneDeferred() => GetTree().ReloadCurrentScene();
 
