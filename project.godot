@@ -18,11 +18,11 @@ config/name="Polygons"
 config/version="ALPHA"
 run/main_scene="uid://bgmqqu08l2ykq"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
-config/icon="res://icon.svg"
 
 [autoload]
 
 Globals="*res://Scripts/Globals.cs"
+ModLoader="*uid://brwx22baov3b0"
 
 [display]
 
@@ -47,4 +47,5 @@ Jump={
 
 [rendering]
 
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.09239703, 0.09239707, 0.09239706, 1)
