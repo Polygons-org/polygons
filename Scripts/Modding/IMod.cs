@@ -16,14 +16,14 @@ namespace Modding {
     }
 
     public partial class ModNodeProxy : Node {
-        public IModNode ModLogic;
+        public IModNode ModLogic { get; set; } = null!;
 
         public override void _Ready() {
-            ModLogic?.Ready(this);
+            ModLogic.Ready(this); // pass this Node so the mod can safely call GetTree(), AddChild(), etc.
         }
 
         public override void _Process(double delta) {
-            ModLogic?.Process(this, delta);
+            ModLogic.Process(this, delta);
         }
     }
 }
