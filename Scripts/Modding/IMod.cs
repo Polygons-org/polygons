@@ -3,10 +3,10 @@ using System;
 
 namespace Modding {
     public interface IMod {
-        string Id { get; }
-        string Name { get; }
-        string Version { get; }
-        bool Enabled { get; set; }
+        string ModId { get; }
+        string ModName { get; }
+        string ModVersion { get; }
+        bool ModEnabled { get; set; }
 
         void OnLoad();
     }
