@@ -8,9 +8,21 @@
 [ext_resource type="Script" uid="uid://remmfekjb2mt" path="res://Scripts/SceneSwitcher.cs" id="5_dfuwn"]
 [ext_resource type="Texture2D" uid="uid://bfsrm551c8vcg" path="res://Assets/Textures/Objects/Orbs/orb.png" id="6_847jc"]
 [ext_resource type="Texture2D" uid="uid://c4drfg6jppttb" path="res://Assets/Textures/Objects/spike.png" id="6_ir51w"]
+[ext_resource type="Texture2D" uid="uid://bt28mha2spknu" path="res://Assets/Textures/Objects/Blocks/black-block.png" id="6_tpgpw"]
+[ext_resource type="Texture2D" uid="uid://chl8xa058nna3" path="res://Assets/Textures/Objects/Blocks/outline-block.png" id="7_2cc3p"]
 [ext_resource type="Texture2D" uid="uid://dxli8ocm1ia0u" path="res://Assets/Textures/Objects/short-spike.png" id="7_fx05v"]
 [ext_resource type="Texture2D" uid="uid://bih10wpd3y1n3" path="res://Assets/Textures/Objects/Pads/pad.png" id="7_ir51w"]
+[ext_resource type="Texture2D" uid="uid://cegfohnec8w83" path="res://Assets/Textures/Objects/Blocks/outline-block-variant1.png" id="8_8k47n"]
 [ext_resource type="Texture2D" uid="uid://dlqkt2gcin42k" path="res://Assets/Textures/Objects/Portals/cube-portal.png" id="8_fx05v"]
+[ext_resource type="Texture2D" uid="uid://bo2bowy7y2q7s" path="res://Assets/Textures/Objects/Blocks/outline-block-variant2.png" id="9_jnb0j"]
+[ext_resource type="Texture2D" uid="uid://csrw4bfw0s1gv" path="res://Assets/Textures/Objects/Blocks/outline-block-variant3.png" id="10_i66mr"]
+[ext_resource type="Texture2D" uid="uid://f6gp5w7ck7wo" path="res://Assets/Textures/Objects/Blocks/outline-block-variant4.png" id="11_1k7u0"]
+[ext_resource type="Texture2D" uid="uid://dqhwj14j0nnoo" path="res://Assets/Textures/Objects/Orbs/gravity-orb.png" id="15_migd1"]
+[ext_resource type="Texture2D" uid="uid://b0papl8qc4loh" path="res://Assets/Textures/Objects/Orbs/death-orb.png" id="16_m0sft"]
+[ext_resource type="Texture2D" uid="uid://db8wijjm8a6xt" path="res://Assets/Textures/Objects/Pads/gravity-pad.png" id="18_37qrt"]
+[ext_resource type="Texture2D" uid="uid://r4avoivdyuae" path="res://Assets/Textures/Objects/Portals/ship-portal.png" id="20_7v7kd"]
+[ext_resource type="Texture2D" uid="uid://xuk71lsl6ffi" path="res://Assets/Textures/Objects/Portals/ball-portal.png" id="21_pswvd"]
+[ext_resource type="Texture2D" uid="uid://by2d0dig6gfwx" path="res://Assets/Textures/Objects/Portals/wave-portal.png" id="22_df5t7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brgpd"]
 bg_color = Color(0.67481464, 0.67481464, 0.6748146, 1)
@@ -175,6 +187,78 @@ position = Vector2(50, 50)
 scale = Vector2(0.09375, 0.09375)
 texture = ExtResource("5_5v8xv")
 
+[node name="BlackBlock" type="Button" parent="CanvasLayer/ObjectPicker/Build/Basic" unique_id=1322933338]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("1_0hhuw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+
+[node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Basic/BlackBlock" unique_id=1177856561]
+position = Vector2(50, 50)
+scale = Vector2(0.09375, 0.09375)
+texture = ExtResource("6_tpgpw")
+
+[node name="OutlineBlock1" type="Button" parent="CanvasLayer/ObjectPicker/Build/Basic" unique_id=509889617]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("1_0hhuw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+
+[node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Basic/OutlineBlock1" unique_id=1002049787]
+position = Vector2(50, 50)
+scale = Vector2(0.09375, 0.09375)
+texture = ExtResource("7_2cc3p")
+
+[node name="OutlineBlock2" type="Button" parent="CanvasLayer/ObjectPicker/Build/Basic" unique_id=1201141094]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("1_0hhuw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+
+[node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Basic/OutlineBlock2" unique_id=1082221426]
+position = Vector2(50, 50)
+scale = Vector2(0.09375, 0.09375)
+texture = ExtResource("8_8k47n")
+
+[node name="OutlineBlock3" type="Button" parent="CanvasLayer/ObjectPicker/Build/Basic" unique_id=985728571]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("1_0hhuw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+
+[node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Basic/OutlineBlock3" unique_id=339123083]
+position = Vector2(50, 50)
+scale = Vector2(0.09375, 0.09375)
+texture = ExtResource("9_jnb0j")
+
+[node name="OutlineBlock4" type="Button" parent="CanvasLayer/ObjectPicker/Build/Basic" unique_id=211886518]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("1_0hhuw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+
+[node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Basic/OutlineBlock4" unique_id=900602055]
+position = Vector2(50, 50)
+scale = Vector2(0.09375, 0.09375)
+texture = ExtResource("10_i66mr")
+
+[node name="OutlineBlock5" type="Button" parent="CanvasLayer/ObjectPicker/Build/Basic" unique_id=1919841388]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("1_0hhuw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+
+[node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Basic/OutlineBlock5" unique_id=363500681]
+position = Vector2(50, 50)
+scale = Vector2(0.09375, 0.09375)
+texture = ExtResource("11_1k7u0")
+
 [node name="Spike1" type="Button" parent="CanvasLayer/ObjectPicker/Build/Basic" unique_id=1045996449]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -219,6 +303,30 @@ position = Vector2(50, 50)
 scale = Vector2(0.09375, 0.09375)
 texture = ExtResource("6_847jc")
 
+[node name="GravityOrb" type="Button" parent="CanvasLayer/ObjectPicker/Build/Orbs" unique_id=1092767559]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("1_0hhuw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+
+[node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Orbs/GravityOrb" unique_id=144745287]
+position = Vector2(50, 50)
+scale = Vector2(0.09375, 0.09375)
+texture = ExtResource("15_migd1")
+
+[node name="DeathOrb" type="Button" parent="CanvasLayer/ObjectPicker/Build/Orbs" unique_id=784587771]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("1_0hhuw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+
+[node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Orbs/DeathOrb" unique_id=821956525]
+position = Vector2(50, 50)
+scale = Vector2(0.09375, 0.09375)
+texture = ExtResource("16_m0sft")
+
 [node name="Pads" type="GridContainer" parent="CanvasLayer/ObjectPicker/Build" unique_id=1542495987]
 visible = false
 layout_mode = 2
@@ -239,6 +347,18 @@ position = Vector2(50, 50)
 scale = Vector2(0.09375, 0.09375)
 texture = ExtResource("7_ir51w")
 
+[node name="GravityPad" type="Button" parent="CanvasLayer/ObjectPicker/Build/Pads" unique_id=1004328580]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("1_0hhuw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+
+[node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Pads/GravityPad" unique_id=2001135313]
+position = Vector2(50, 50)
+scale = Vector2(0.09375, 0.09375)
+texture = ExtResource("18_37qrt")
+
 [node name="Portals" type="GridContainer" parent="CanvasLayer/ObjectPicker/Build" unique_id=639834217]
 visible = false
 layout_mode = 2
@@ -258,6 +378,42 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
 position = Vector2(50, 50)
 scale = Vector2(0.051757805, 0.051757805)
 texture = ExtResource("8_fx05v")
+
+[node name="ShipPortal" type="Button" parent="CanvasLayer/ObjectPicker/Build/Portals" unique_id=1378584631]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("1_0hhuw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+
+[node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Portals/ShipPortal" unique_id=1866783197]
+position = Vector2(50, 50)
+scale = Vector2(0.051757805, 0.051757805)
+texture = ExtResource("20_7v7kd")
+
+[node name="BallPortal" type="Button" parent="CanvasLayer/ObjectPicker/Build/Portals" unique_id=1583978404]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("1_0hhuw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+
+[node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Portals/BallPortal" unique_id=85386190]
+position = Vector2(50, 50)
+scale = Vector2(0.051757805, 0.051757805)
+texture = ExtResource("21_pswvd")
+
+[node name="WavePortal" type="Button" parent="CanvasLayer/ObjectPicker/Build/Portals" unique_id=1785554777]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("1_0hhuw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+
+[node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Portals/WavePortal" unique_id=1741477901]
+position = Vector2(50, 50)
+scale = Vector2(0.051757805, 0.051757805)
+texture = ExtResource("22_df5t7")
 
 [node name="TopRightButtons" type="Control" parent="CanvasLayer" unique_id=606997229]
 layout_mode = 3
