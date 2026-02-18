@@ -22,7 +22,6 @@ config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 [autoload]
 
 Globals="*res://Scripts/Globals.cs"
-ModLoader="*uid://brwx22baov3b0"
 
 [display]
 
