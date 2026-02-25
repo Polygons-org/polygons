@@ -2,15 +2,15 @@ using Godot;
 using System;
 
 public partial class Player : Node2D {
-    public Action Die;
+    // public Action Die;
 
     private void ReloadSceneDeferred() => GetTree().ReloadCurrentScene();
 
     // Basically just connects logic to the actions
     // This is so that modding can work
-    public override void _Ready() {
-        Die ??= () => CallDeferred(nameof(ReloadSceneDeferred));
-    }
+    // public override void _Ready() {
+    //     Die ??= () => CallDeferred(nameof(ReloadSceneDeferred));
+    // }
 
     // This function is made by me, the comments aren't because of chatgpt.
     public override void _PhysicsProcess(double delta) {
@@ -52,7 +52,7 @@ public partial class Player : Node2D {
         var result = spaceState.IntersectRay(query);
 
         if (result.Count > 0) {
-            Die.Invoke();
+            Die();
         }
     }
 
@@ -77,7 +77,7 @@ public partial class Player : Node2D {
         }
     }
 
-    // public void Die() {
-    //     GetTree().ReloadCurrentScene();
-    // }
+    public void Die() {
+        CallDeferred(nameof(ReloadSceneDeferred));
+    }
 }
