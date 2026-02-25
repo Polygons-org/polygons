@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cieh3iusppkxt"]
+[gd_scene format=3 uid="uid://cieh3iusppkxt"]
 
 [ext_resource type="Script" uid="uid://kefblqd0sfi3" path="res://Scripts/Player.cs" id="1_iukft"]
 [ext_resource type="Script" uid="uid://fbenmwf71kj5" path="res://Scripts/Game.cs" id="1_j5yw3"]
@@ -11,95 +11,95 @@ size = Vector2(1920, 283)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5yw3"]
 size = Vector2(119, 119)
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=1214003129]
 script = ExtResource("1_j5yw3")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1484561602]
 position = Vector2(960, 503)
 
-[node name="Background" type="Node2D" parent="."]
+[node name="Background" type="Node2D" parent="." unique_id=481974667]
 
-[node name="BG0" type="Sprite2D" parent="Background"]
+[node name="BG0" type="Sprite2D" parent="Background" unique_id=648547105]
 position = Vector2(-960, 467)
 texture = ExtResource("2_b2bpf")
 
-[node name="BG1" type="Sprite2D" parent="Background"]
+[node name="BG1" type="Sprite2D" parent="Background" unique_id=1830571327]
 position = Vector2(960, 467)
 texture = ExtResource("2_b2bpf")
 
-[node name="BG2" type="Sprite2D" parent="Background"]
+[node name="BG2" type="Sprite2D" parent="Background" unique_id=42963896]
 position = Vector2(2880, 467)
 texture = ExtResource("2_b2bpf")
 
-[node name="Ground" type="Node2D" parent="."]
+[node name="Ground" type="Node2D" parent="." unique_id=1133119014]
 position = Vector2(0, 1005)
 
-[node name="Texture" type="Node2D" parent="Ground"]
+[node name="Texture" type="Node2D" parent="Ground" unique_id=339279305]
 
-[node name="Ground9" type="Sprite2D" parent="Ground/Texture"]
+[node name="Ground9" type="Sprite2D" parent="Ground/Texture" unique_id=279632828]
 position = Vector2(-409, -141)
 scale = Vector2(0.3525, 0.3525)
 texture = ExtResource("2_kldst")
 
-[node name="Ground0" type="Sprite2D" parent="Ground/Texture"]
+[node name="Ground0" type="Sprite2D" parent="Ground/Texture" unique_id=664152152]
 position = Vector2(-134, -141)
 scale = Vector2(0.3525, 0.3525)
 texture = ExtResource("2_kldst")
 
-[node name="Ground1" type="Sprite2D" parent="Ground/Texture"]
+[node name="Ground1" type="Sprite2D" parent="Ground/Texture" unique_id=2001638363]
 position = Vector2(141, -141)
 scale = Vector2(0.3525, 0.3525)
 texture = ExtResource("2_kldst")
 
-[node name="Ground2" type="Sprite2D" parent="Ground/Texture"]
+[node name="Ground2" type="Sprite2D" parent="Ground/Texture" unique_id=1845147105]
 position = Vector2(416, -141)
 scale = Vector2(0.3525, 0.3525)
 texture = ExtResource("2_kldst")
 
-[node name="Ground3" type="Sprite2D" parent="Ground/Texture"]
+[node name="Ground3" type="Sprite2D" parent="Ground/Texture" unique_id=253322974]
 position = Vector2(691, -141)
 scale = Vector2(0.3525, 0.3525)
 texture = ExtResource("2_kldst")
 
-[node name="Ground4" type="Sprite2D" parent="Ground/Texture"]
+[node name="Ground4" type="Sprite2D" parent="Ground/Texture" unique_id=324135148]
 position = Vector2(966, -141)
 scale = Vector2(0.3525, 0.3525)
 texture = ExtResource("2_kldst")
 
-[node name="Ground5" type="Sprite2D" parent="Ground/Texture"]
+[node name="Ground5" type="Sprite2D" parent="Ground/Texture" unique_id=889805055]
 position = Vector2(1241, -141)
 scale = Vector2(0.3525, 0.3525)
 texture = ExtResource("2_kldst")
 
-[node name="Ground6" type="Sprite2D" parent="Ground/Texture"]
+[node name="Ground6" type="Sprite2D" parent="Ground/Texture" unique_id=1142499216]
 position = Vector2(1516, -141)
 scale = Vector2(0.3525, 0.3525)
 texture = ExtResource("2_kldst")
 
-[node name="Ground7" type="Sprite2D" parent="Ground/Texture"]
+[node name="Ground7" type="Sprite2D" parent="Ground/Texture" unique_id=1844098930]
 position = Vector2(1790, -141)
 scale = Vector2(0.3525, 0.3525)
 texture = ExtResource("2_kldst")
 
-[node name="Ground8" type="Sprite2D" parent="Ground/Texture"]
+[node name="Ground8" type="Sprite2D" parent="Ground/Texture" unique_id=365347790]
 position = Vector2(2065, -141)
 scale = Vector2(0.3525, 0.3525)
 texture = ExtResource("2_kldst")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground" unique_id=478855766]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D" unique_id=2016683758]
 position = Vector2(960, -140.5)
 shape = SubResource("RectangleShape2D_cg2ps")
 
-[node name="Player" type="Node2D" parent="."]
+[node name="Player" type="Node2D" parent="." unique_id=1778325583]
 position = Vector2(0, 663)
 script = ExtResource("1_iukft")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="Player"]
+[node name="RigidBody2D" type="RigidBody2D" parent="Player" unique_id=1085663663]
 gravity_scale = 5.0
 
-[node name="Icon" type="ColorRect" parent="Player/RigidBody2D"]
+[node name="Icon" type="ColorRect" parent="Player/RigidBody2D" unique_id=305648740]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -113,7 +113,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 1, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/RigidBody2D" unique_id=34188599]
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_j5yw3")
 debug_color = Color(0, 0, 1, 0.41960785)

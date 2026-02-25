@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cbfi77jr20fyt"]
+
+[ext_resource type="Texture2D" uid="uid://bskbblbgv7orq" path="res://Assets/Textures/Objects/Blocks/block.png" id="1_fcnwj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5i8q"]
+size = Vector2(120, 120)
+
+[node name="Object" type="Node2D" unique_id=1069824218]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=45894496]
+scale = Vector2(0.14999999, 0.14999999)
+texture = ExtResource("1_fcnwj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1903253986]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1772120618]
+shape = SubResource("RectangleShape2D_j5i8q")

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b3qyh43rby1k0" path="res://Scripts/Editor.cs" id="1_6ykgs"]
 [ext_resource type="Texture2D" uid="uid://mpgrvyoruipn" path="res://Assets/Textures/Other/DefaultBG.png" id="1_trcuy"]
 [ext_resource type="Texture2D" uid="uid://7cd4xsbpfo21" path="res://Assets/Textures/Other/Ground.png" id="3_6ykgs"]
+[ext_resource type="Script" uid="uid://fkj4iuf64t3y" path="res://Scripts/EditorObjects.cs" id="3_m0sft"]
 [ext_resource type="Texture2D" uid="uid://bskbblbgv7orq" path="res://Assets/Textures/Objects/Blocks/block.png" id="5_5v8xv"]
 [ext_resource type="Script" uid="uid://remmfekjb2mt" path="res://Scripts/SceneSwitcher.cs" id="5_dfuwn"]
 [ext_resource type="Texture2D" uid="uid://bfsrm551c8vcg" path="res://Assets/Textures/Objects/Orbs/orb.png" id="6_847jc"]
@@ -44,6 +45,9 @@ script = ExtResource("1_6ykgs")
 [node name="Background" type="Sprite2D" parent="." unique_id=695738141]
 position = Vector2(960, 465)
 texture = ExtResource("1_trcuy")
+
+[node name="Objects" type="Node2D" parent="." unique_id=855085207]
+script = ExtResource("3_m0sft")
 
 [node name="StartLine" type="ColorRect" parent="." unique_id=1269175946]
 offset_left = -3.0
