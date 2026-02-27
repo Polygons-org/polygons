@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://fkj4iuf64t3y" path="res://Scripts/EditorObjects.cs" id="3_m0sft"]
 [ext_resource type="Texture2D" uid="uid://bskbblbgv7orq" path="res://Assets/Textures/Objects/Blocks/block.png" id="5_5v8xv"]
 [ext_resource type="Script" uid="uid://remmfekjb2mt" path="res://Scripts/SceneSwitcher.cs" id="5_dfuwn"]
+[ext_resource type="Script" uid="uid://currep2s2v6hg" path="res://Scripts/ObjectButton.cs" id="6_37qrt"]
 [ext_resource type="Texture2D" uid="uid://bfsrm551c8vcg" path="res://Assets/Textures/Objects/Orbs/orb.png" id="6_847jc"]
 [ext_resource type="Texture2D" uid="uid://c4drfg6jppttb" path="res://Assets/Textures/Objects/spike.png" id="6_ir51w"]
 [ext_resource type="Texture2D" uid="uid://bt28mha2spknu" path="res://Assets/Textures/Objects/Blocks/black-block.png" id="6_tpgpw"]
@@ -171,6 +172,7 @@ offset_right = 1930.0
 offset_bottom = 328.0
 theme_override_font_sizes/font_size = 46
 current_tab = 0
+switch_on_drag_hover = false
 
 [node name="Basic" type="GridContainer" parent="CanvasLayer/ObjectPicker/Build" unique_id=1488649344]
 layout_mode = 2
@@ -185,6 +187,7 @@ layout_mode = 2
 theme = ExtResource("1_0hhuw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+script = ExtResource("6_37qrt")
 
 [node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Basic/Block1" unique_id=48473219]
 position = Vector2(50, 50)
@@ -197,6 +200,8 @@ layout_mode = 2
 theme = ExtResource("1_0hhuw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+script = ExtResource("6_37qrt")
+ObjectName = "Blocks/black-block"
 
 [node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Basic/BlackBlock" unique_id=1177856561]
 position = Vector2(50, 50)
@@ -209,6 +214,8 @@ layout_mode = 2
 theme = ExtResource("1_0hhuw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+script = ExtResource("6_37qrt")
+ObjectName = "Blocks/outline-block"
 
 [node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Basic/OutlineBlock1" unique_id=1002049787]
 position = Vector2(50, 50)
@@ -221,6 +228,8 @@ layout_mode = 2
 theme = ExtResource("1_0hhuw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+script = ExtResource("6_37qrt")
+ObjectName = "Blocks/outline-block-variant1"
 
 [node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Basic/OutlineBlock2" unique_id=1082221426]
 position = Vector2(50, 50)
@@ -233,6 +242,8 @@ layout_mode = 2
 theme = ExtResource("1_0hhuw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+script = ExtResource("6_37qrt")
+ObjectName = "Blocks/outline-block-variant2"
 
 [node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Basic/OutlineBlock3" unique_id=339123083]
 position = Vector2(50, 50)
@@ -245,6 +256,8 @@ layout_mode = 2
 theme = ExtResource("1_0hhuw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+script = ExtResource("6_37qrt")
+ObjectName = "Blocks/outline-block-variant3"
 
 [node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Basic/OutlineBlock4" unique_id=900602055]
 position = Vector2(50, 50)
@@ -257,6 +270,8 @@ layout_mode = 2
 theme = ExtResource("1_0hhuw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+script = ExtResource("6_37qrt")
+ObjectName = "Blocks/outline-block-variant4"
 
 [node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Basic/OutlineBlock5" unique_id=363500681]
 position = Vector2(50, 50)
@@ -269,6 +284,8 @@ layout_mode = 2
 theme = ExtResource("1_0hhuw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+script = ExtResource("6_37qrt")
+ObjectName = "spike"
 
 [node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Basic/Spike1" unique_id=2073818219]
 position = Vector2(50, 50)
@@ -281,6 +298,8 @@ layout_mode = 2
 theme = ExtResource("1_0hhuw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+script = ExtResource("6_37qrt")
+ObjectName = "short-spike"
 
 [node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Basic/ShortSpike1" unique_id=1235595074]
 position = Vector2(50, 50)
@@ -301,6 +320,8 @@ layout_mode = 2
 theme = ExtResource("1_0hhuw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+script = ExtResource("6_37qrt")
+ObjectName = "Orbs/orb"
 
 [node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Orbs/YellowOrb" unique_id=1548452897]
 position = Vector2(50, 50)
@@ -313,6 +334,8 @@ layout_mode = 2
 theme = ExtResource("1_0hhuw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+script = ExtResource("6_37qrt")
+ObjectName = "Orbs/gravity-orb"
 
 [node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Orbs/GravityOrb" unique_id=144745287]
 position = Vector2(50, 50)
@@ -325,6 +348,8 @@ layout_mode = 2
 theme = ExtResource("1_0hhuw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+script = ExtResource("6_37qrt")
+ObjectName = "Orbs/death-orb"
 
 [node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Orbs/DeathOrb" unique_id=821956525]
 position = Vector2(50, 50)
@@ -345,6 +370,8 @@ layout_mode = 2
 theme = ExtResource("1_0hhuw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+script = ExtResource("6_37qrt")
+ObjectName = "Pads/pad"
 
 [node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Pads/YellowPad" unique_id=667606723]
 position = Vector2(50, 50)
@@ -357,6 +384,8 @@ layout_mode = 2
 theme = ExtResource("1_0hhuw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+script = ExtResource("6_37qrt")
+ObjectName = "Pads/gravity-pad"
 
 [node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Pads/GravityPad" unique_id=2001135313]
 position = Vector2(50, 50)
@@ -377,6 +406,8 @@ layout_mode = 2
 theme = ExtResource("1_0hhuw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+script = ExtResource("6_37qrt")
+ObjectName = "Portals/cube-portal"
 
 [node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Portals/CubePortal" unique_id=948014535]
 position = Vector2(50, 50)
@@ -389,6 +420,8 @@ layout_mode = 2
 theme = ExtResource("1_0hhuw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+script = ExtResource("6_37qrt")
+ObjectName = "Portals/ship-portal"
 
 [node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Portals/ShipPortal" unique_id=1866783197]
 position = Vector2(50, 50)
@@ -401,6 +434,8 @@ layout_mode = 2
 theme = ExtResource("1_0hhuw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+script = ExtResource("6_37qrt")
+ObjectName = "Portals/ball-portal"
 
 [node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Portals/BallPortal" unique_id=85386190]
 position = Vector2(50, 50)
@@ -413,6 +448,8 @@ layout_mode = 2
 theme = ExtResource("1_0hhuw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_brgpd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5v8xv")
+script = ExtResource("6_37qrt")
+ObjectName = "Portals/wave-portal"
 
 [node name="Sprite" type="Sprite2D" parent="CanvasLayer/ObjectPicker/Build/Portals/WavePortal" unique_id=1741477901]
 position = Vector2(50, 50)

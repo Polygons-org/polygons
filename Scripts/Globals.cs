@@ -13,4 +13,6 @@ public partial class Globals : Node {
     public static int BackGroundRed = 0;
     public static int BackGroundGreen = 0;
     public static int BackGroundBlue = 100;
+
+    public static string SelectedObject = "Blocks/block";
 }
