@@ -1,9 +1,9 @@
 using Godot;
-using System;
-using System.Security.AccessControl;
 
 public partial class Editor : Node2D {
     int CameraSpeed = 10;
+    private bool _isDragging = false;
+    private Vector2 _lastMousePos;
 
     public override void _Ready() {
         GetNode<Sprite2D>($"Background").Modulate = new Color(Globals.BackGroundRed / 255f, Globals.BackGroundGreen / 255f, Globals.BackGroundBlue / 255f);
@@ -13,29 +13,26 @@ public partial class Editor : Node2D {
         }
     }
 
-    public override void _Process(double delta) {
-        if (Input.IsKeyPressed(Key.Shift)) {
-            CameraSpeed = 30;
-        } else {
-            CameraSpeed = 10;
+    public override void _Input(InputEvent @event) {
+        if (@event is InputEventMouseButton mouseBtn && mouseBtn.ButtonIndex == MouseButton.Middle) {
+            _isDragging = mouseBtn.Pressed;
+            if (_isDragging)
+                _lastMousePos = GetViewport().GetMousePosition();
         }
+    }
 
-        if (Input.IsKeyPressed(Key.Up)) {
-            GetNode<Camera2D>("Camera2D").Position += new Vector2(0, -CameraSpeed);
-            GetNode<ColorRect>("StartLine").Position += new Vector2(0, -CameraSpeed);
-            GetNode<Sprite2D>("Background").Position += new Vector2(0, -CameraSpeed);
-        } if (Input.IsKeyPressed(Key.Down)) {
-            GetNode<Camera2D>("Camera2D").Position += new Vector2(0, CameraSpeed);
-            GetNode<ColorRect>("StartLine").Position += new Vector2(0, CameraSpeed);
-            GetNode<Sprite2D>("Background").Position += new Vector2(0, CameraSpeed);
-        } if (Input.IsKeyPressed(Key.Left)) {
-            GetNode<Camera2D>("Camera2D").Position += new Vector2(-CameraSpeed, 0);
-            GetNode<Node2D>("Ground").Position += new Vector2(-CameraSpeed, 0);
-            GetNode<Sprite2D>("Background").Position += new Vector2(-CameraSpeed, 0);
-        } if (Input.IsKeyPressed(Key.Right)) {
-            GetNode<Camera2D>("Camera2D").Position += new Vector2(CameraSpeed, 0);
-            GetNode<Node2D>("Ground").Position += new Vector2(CameraSpeed, 0);
-            GetNode<Sprite2D>("Background").Position += new Vector2(CameraSpeed, 0);
+    public override void _Process(double delta) {
+        if (_isDragging) {
+            Vector2 currentMouse = GetViewport().GetMousePosition();
+            Vector2 diff = _lastMousePos - currentMouse; // inverted so dragging right moves right
+            _lastMousePos = currentMouse;
+
+            if (diff != Vector2.Zero) {
+                GetNode<Camera2D>("Camera2D").Position += diff;
+                GetNode<ColorRect>("StartLine").Position += new Vector2(0, diff.Y);
+                GetNode<Sprite2D>("Background").Position += diff;
+                GetNode<Node2D>("Ground").Position += new Vector2(diff.X, 0);
+            }
         }
     }
 }
