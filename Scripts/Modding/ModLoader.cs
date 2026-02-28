@@ -11,20 +11,17 @@ public partial class ModLoader : Node {
         LoadAllMods();
     }
 
-    Assembly ResolveAssembly(object sender, ResolveEventArgs args)
-    {
+    Assembly ResolveAssembly(object sender, ResolveEventArgs args) {
         var name = new AssemblyName(args.Name).Name;
-        
+
         // Search already-loaded assemblies first
-        foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
-        {
+        foreach (var asm in AppDomain.CurrentDomain.GetAssemblies()) {
             if (asm.GetName().Name == name)
                 return asm;
         }
 
         // Then search disk locations of loaded assemblies
-        foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
-        {
+        foreach (var asm in AppDomain.CurrentDomain.GetAssemblies()) {
             var loc = asm.Location;
             if (string.IsNullOrEmpty(loc)) continue;
             var dir = System.IO.Path.GetDirectoryName(loc);
@@ -101,7 +98,7 @@ public partial class ModLoader : Node {
             // Only grab managed DLLs, skip native ones that cause CS0009
             try {
                 refs.Add(MetadataReference.CreateFromFile(loc));
-                GD.Print("Added ref: " + loc);
+                // GD.Print("Added ref: " + loc);
             }
             catch { }
         }
