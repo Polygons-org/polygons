@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgmqqu08l2ykq"]
+[gd_scene format=3 uid="uid://bgmqqu08l2ykq"]
 
 [ext_resource type="Script" uid="uid://bmxb4tsp56btx" path="res://Scripts/MainMenu.cs" id="1_ghw46"]
 [ext_resource type="FontFile" uid="uid://w8ct2lq2e77g" path="res://Assets/Fonts/Lexend.ttf" id="1_tt5f1"]
 [ext_resource type="Theme" uid="uid://undiofb8wxvo" path="res://Themes/ButtonTheme.tres" id="2_853f1"]
 [ext_resource type="Script" uid="uid://remmfekjb2mt" path="res://Scripts/SceneSwitcher.cs" id="3_8saeu"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=763610504]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ghw46")
 
-[node name="CenterUI" type="Control" parent="."]
+[node name="CenterUI" type="Control" parent="." unique_id=600714188]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -28,7 +28,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="CenterUI"]
+[node name="Title" type="Label" parent="CenterUI" unique_id=635828149]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -47,7 +47,7 @@ text = "Polygons"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Buttons" type="VBoxContainer" parent="CenterUI"]
+[node name="Buttons" type="VBoxContainer" parent="CenterUI" unique_id=316474730]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -58,7 +58,7 @@ offset_bottom = 304.0
 grow_horizontal = 2
 theme_override_constants/separation = 20
 
-[node name="PlayButton" type="Button" parent="CenterUI/Buttons"]
+[node name="PlayButton" type="Button" parent="CenterUI/Buttons" unique_id=1517698012]
 custom_minimum_size = Vector2(0, 142.625)
 layout_mode = 2
 theme = ExtResource("2_853f1")
@@ -66,7 +66,7 @@ text = "Play"
 script = ExtResource("3_8saeu")
 ScenePath = "res://Scenes/Game.tscn"
 
-[node name="OnlineLevelsButton" type="Button" parent="CenterUI/Buttons"]
+[node name="OnlineLevelsButton" type="Button" parent="CenterUI/Buttons" unique_id=341995702]
 custom_minimum_size = Vector2(0, 142.625)
 layout_mode = 2
 theme = ExtResource("2_853f1")
@@ -74,7 +74,7 @@ text = "Online Levels"
 script = ExtResource("3_8saeu")
 ScenePath = "res://Scenes/OnlineLevelsMenu.tscn"
 
-[node name="VersionText" type="Control" parent="."]
+[node name="VersionText" type="Control" parent="." unique_id=1538709649]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -83,7 +83,7 @@ offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
 
-[node name="ClientVersion" type="Label" parent="VersionText"]
+[node name="ClientVersion" type="Label" parent="VersionText" unique_id=330996573]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -96,7 +96,7 @@ theme_override_font_sizes/font_size = 61
 text = "Version: {ClientVer}"
 horizontal_alignment = 2
 
-[node name="LatestVersion" type="Label" parent="VersionText"]
+[node name="LatestVersion" type="Label" parent="VersionText" unique_id=1489324950]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -110,4 +110,4 @@ theme_override_font_sizes/font_size = 61
 text = "Latest Version: {LatestVer}"
 horizontal_alignment = 2
 
-[node name="HTTPRequest" type="HTTPRequest" parent="VersionText/LatestVersion"]
+[node name="HTTPRequest" type="HTTPRequest" parent="VersionText/LatestVersion" unique_id=1580986591]

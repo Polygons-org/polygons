@@ -1,99 +1,111 @@
-using Godot;
 using System;
-using System.IO;
-using System.Linq;
+using Godot;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
 using System.Reflection;
-using System.Runtime.Loader;
+using System.Collections.Generic;
 
 public partial class ModLoader : Node {
-    public override void _EnterTree() {
-        // Assembly resolver (for shared dependencies)
-        AppDomain.CurrentDomain.AssemblyResolve += (sender, args) => {
-            string name = new AssemblyName(args.Name).Name;
-            if (name == "Polygons") // never resolve the main game assembly
-                return null;
-
-            string modsPath = ProjectSettings.GlobalizePath("user://mods");
-            string dllPath = Path.Combine(modsPath, name + ".dll");
-            if (File.Exists(dllPath))
-                return Assembly.LoadFrom(dllPath);
-
-            return null;
-        };
-
-        LoadMods();
+    public override void _Ready() {
+        AppDomain.CurrentDomain.AssemblyResolve += ResolveAssembly;
+        LoadAllMods();
     }
 
-    private void LoadMods() {
-        string modsPath = ProjectSettings.GlobalizePath("user://mods");
-        GD.Print($"Looking for mods in: {modsPath}");
+    Assembly ResolveAssembly(object sender, ResolveEventArgs args)
+    {
+        var name = new AssemblyName(args.Name).Name;
+        
+        // Search already-loaded assemblies first
+        foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
+        {
+            if (asm.GetName().Name == name)
+                return asm;
+        }
 
-        if (!DirAccess.DirExistsAbsolute(modsPath)) {
-            var error = DirAccess.MakeDirRecursiveAbsolute(modsPath);
-            if (error != Error.Ok) {
-                GD.PrintErr($"Failed to create mods directory: {error}");
-                return;
+        // Then search disk locations of loaded assemblies
+        foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
+        {
+            var loc = asm.Location;
+            if (string.IsNullOrEmpty(loc)) continue;
+            var dir = System.IO.Path.GetDirectoryName(loc);
+            var candidate = System.IO.Path.Combine(dir, name + ".dll");
+            if (System.IO.File.Exists(candidate))
+                return Assembly.LoadFrom(candidate);
+        }
+
+        GD.PrintErr($"Could not resolve assembly: {args.Name}");
+        return null;
+    }
+
+    void LoadAllMods() {
+        var dir = DirAccess.Open("user://mods/");
+        if (dir == null) return;
+        dir.ListDirBegin();
+        string entry;
+        while ((entry = dir.GetNext()) != "") {
+            if (dir.CurrentIsDir() && entry != "." && entry != "..")
+                LoadMod("user://mods/" + entry);
+        }
+    }
+
+    void LoadMod(string modPath) {
+        var manifestPath = modPath + "/mod.json";
+        if (!FileAccess.FileExists(manifestPath)) return;
+        var manifest = Json.ParseString(FileAccess.GetFileAsString(manifestPath)).AsGodotDictionary();
+
+        var sources = new List<SyntaxTree>();
+        var dir = DirAccess.Open(modPath);
+        dir.ListDirBegin();
+        string fileName;
+        while ((fileName = dir.GetNext()) != "") {
+            if (fileName.EndsWith(".cs")) {
+                var code = FileAccess.GetFileAsString(modPath + "/" + fileName);
+                sources.Add(CSharpSyntaxTree.ParseText(code, path: fileName));
             }
         }
 
-        using var dir = DirAccess.Open(modsPath);
-        if (dir == null) {
-            GD.PrintErr($"Failed to open mods directory: {modsPath}");
+        var refs = GetMetadataReferences();
+        if (refs == null) return;
+
+        var compilation = CSharpCompilation.Create(
+            assemblyName: manifest["name"].ToString(),
+            syntaxTrees: sources,
+            references: refs,
+            options: new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary)
+        );
+
+        using var ms = new System.IO.MemoryStream();
+        var result = compilation.Emit(ms);
+
+        if (!result.Success) {
+            foreach (var diag in result.Diagnostics)
+                GD.PrintErr($"[{manifest["name"]}] {diag}");
             return;
         }
 
-        dir.ListDirBegin();
-        string fileName = dir.GetNext();
-        while (fileName != "") {
-            if (!dir.CurrentIsDir() && fileName.EndsWith(".dll")) {
-                string fullPath = Path.Combine(modsPath, fileName);
-                LoadDll(fullPath);
-            }
-            fileName = dir.GetNext();
-        }
-        dir.ListDirEnd();
+        ms.Seek(0, System.IO.SeekOrigin.Begin);
+        var assembly = Assembly.Load(ms.ToArray());
+        var modClass = assembly.GetType("Mod");
+        var instance = Activator.CreateInstance(modClass);
+        modClass.GetMethod("Init")?.Invoke(instance, new object[] { GetTree().Root });
     }
 
-    private void LoadDll(string path) {
-        GD.Print($"Attempting to load mod from: {path}");
+    List<MetadataReference> GetMetadataReferences() {
+        var refs = new List<MetadataReference>();
+        var seenDirs = new HashSet<string>();
 
-        try {
-            Assembly asm = AssemblyLoadContext.Default.LoadFromAssemblyPath(path);
-            GD.Print($"Assembly loaded: {asm.FullName}");
+        foreach (var asm in AppDomain.CurrentDomain.GetAssemblies()) {
+            var loc = asm.Location;
+            if (string.IsNullOrEmpty(loc) || !System.IO.File.Exists(loc)) continue;
 
-            Type[] types = asm.GetTypes();
-            GD.Print($"Found {types.Length} types in assembly");
-
-            foreach (var type in types) {
-                if (type == null || type.IsAbstract || type.IsInterface)
-                    continue;
-
-                // Check for IModNode first (Node-based mod)
-                if (typeof(Modding.IModNode).IsAssignableFrom(type)) {
-                    GD.Print($"✓ Found Node mod: {type.FullName}");
-                    var modLogic = (Modding.IModNode)Activator.CreateInstance(type)!;
-
-                    var proxy = new Modding.ModNodeProxy() {
-                        ModLogic = modLogic
-                    };
-
-                    GetTree().Root.AddChild(proxy);
-                    GD.Print("Node mod added to scene tree");
-
-                    continue;
-                }
-
-                // Otherwise, check for plain IMod
-                if (typeof(Modding.IMod).IsAssignableFrom(type)) {
-                    GD.Print($"✓ Found plain mod: {type.FullName}");
-                    var modInstance = (Modding.IMod)Activator.CreateInstance(type)!;
-                    modInstance.OnLoad();
-                    GD.Print($"Loaded mod {modInstance.ModName} ({modInstance.ModId})");
-                }
+            // Only grab managed DLLs, skip native ones that cause CS0009
+            try {
+                refs.Add(MetadataReference.CreateFromFile(loc));
+                GD.Print("Added ref: " + loc);
             }
+            catch { }
         }
-        catch (Exception e) {
-            GD.PrintErr($"Failed to load mod {path}: {e}");
-        }
+
+        return refs;
     }
 }
