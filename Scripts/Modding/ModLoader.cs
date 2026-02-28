@@ -4,11 +4,52 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using System.Reflection;
 using System.Collections.Generic;
+using System.Reflection.Metadata;
+using System.Linq;
 
 public partial class ModLoader : Node {
     public override void _Ready() {
         AppDomain.CurrentDomain.AssemblyResolve += ResolveAssembly;
+        GetTree().NodeAdded += OnNodeAdded;
         LoadAllMods();
+    }
+
+    public static Dictionary<string, List<Action<Node>>> OnNodeReady = new();
+
+    public static void RegisterNodeCallback(string key, Action<Node> callback)
+    {
+        if (!OnNodeReady.ContainsKey(key))
+            OnNodeReady[key] = new List<Action<Node>>();
+        OnNodeReady[key].Add(callback);
+
+        // If the node already exists in the tree, fire immediately
+        var node = ((SceneTree)Engine.GetMainLoop()).Root.GetNodeOrNull(key);
+        if (node != null)
+            callback(node);
+    }
+
+    void OnNodeAdded(Node node) {
+        var typeName = node.GetType().Name;
+        if (OnNodeReady.TryGetValue(typeName, out var callbacks))
+            foreach (var cb in callbacks) cb(node);
+
+        Callable.From(() => {
+            var path = node.GetPath().ToString();
+            if (OnNodeReady.TryGetValue(path, out var pathCallbacks))
+                foreach (var cb in pathCallbacks) cb(node);
+        }).CallDeferred();
+    }
+
+    static byte[] GetAssemblyBytes(Assembly asm) {
+        // Use the unsafe accessor to get raw PE bytes from a loaded in-memory assembly
+        var module = asm.Modules.First();
+        // Trick: re-serialize via MetadataReader path
+        unsafe {
+            asm.TryGetRawMetadata(out byte* blob, out int length);
+            var bytes = new byte[length];
+            System.Runtime.InteropServices.Marshal.Copy((IntPtr)blob, bytes, 0, length);
+            return bytes;
+        }
     }
 
     Assembly ResolveAssembly(object sender, ResolveEventArgs args) {
@@ -89,16 +130,21 @@ public partial class ModLoader : Node {
 
     List<MetadataReference> GetMetadataReferences() {
         var refs = new List<MetadataReference>();
-        var seenDirs = new HashSet<string>();
 
         foreach (var asm in AppDomain.CurrentDomain.GetAssemblies()) {
-            var loc = asm.Location;
-            if (string.IsNullOrEmpty(loc) || !System.IO.File.Exists(loc)) continue;
-
-            // Only grab managed DLLs, skip native ones that cause CS0009
             try {
-                refs.Add(MetadataReference.CreateFromFile(loc));
-                // GD.Print("Added ref: " + loc);
+                var loc = asm.Location;
+                if (!string.IsNullOrEmpty(loc) && System.IO.File.Exists(loc)) {
+                    refs.Add(MetadataReference.CreateFromFile(loc));
+                } else {
+                    unsafe {
+                        if (asm.TryGetRawMetadata(out byte* blob, out int length)) {
+                            var moduleMetadata = ModuleMetadata.CreateFromMetadata((IntPtr)blob, length);
+                            var assemblyMetadata = AssemblyMetadata.Create(moduleMetadata);
+                            refs.Add(assemblyMetadata.GetReference());
+                        }
+                    }
+                }
             }
             catch { }
         }
