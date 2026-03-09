@@ -2,15 +2,19 @@ using Godot;
 using System;
 
 public partial class Player : Node2D {
-    // public Action Die;
+    public Action DieAction;
+    public Action<RigidBody2D> CheckForWallAction;
+    public Func<RigidBody2D, bool> IsOnGroundAction;
 
     private void ReloadSceneDeferred() => GetTree().ReloadCurrentScene();
 
     // Basically just connects logic to the actions
     // This is so that modding can work
-    // public override void _Ready() {
-    //     Die ??= () => CallDeferred(nameof(ReloadSceneDeferred));
-    // }
+    public Player() {
+        DieAction = () => CallDeferred(nameof(ReloadSceneDeferred));
+        CheckForWallAction = (rb) => CheckForWall(rb);
+        IsOnGroundAction = (rb) => IsOnGround(rb);
+    }
 
     // This function is made by me, the comments aren't because of chatgpt.
     public override void _PhysicsProcess(double delta) {
@@ -23,14 +27,14 @@ public partial class Player : Node2D {
         Camera.Position = new Vector2(RigidBody.Position.X + 500, Camera.Position.Y);
         GroundHitbox.Position = new Vector2(RigidBody.Position.X, GroundHitbox.Position.Y);
 
-        if (Input.IsActionPressed("Jump") && IsOnGround(RigidBody)) {
+        if (Input.IsActionPressed("Jump") && IsOnGroundAction(RigidBody)) {
             RigidBody.ApplyImpulse(Vector2.Up * 1600, Vector2.Zero);
         }
 
         // Kills the player if they hit a wall
-        CheckForWall(RigidBody);
+        CheckForWallAction.Invoke(RigidBody);
 
-        if (IsOnGround(RigidBody)) {
+        if (IsOnGroundAction(RigidBody)) {
             RigidBody.RotationDegrees = 0;
         } else {
             RigidBody.RotationDegrees += 5f;
@@ -52,7 +56,7 @@ public partial class Player : Node2D {
         var result = spaceState.IntersectRay(query);
 
         if (result.Count > 0) {
-            Die();
+            DieAction.Invoke();
         }
     }
 
@@ -75,9 +79,5 @@ public partial class Player : Node2D {
         } else {
             return false;
         }
-    }
-
-    public void Die() {
-        CallDeferred(nameof(ReloadSceneDeferred));
     }
 }
