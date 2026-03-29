@@ -23,6 +23,7 @@ config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 
 Globals="*res://Scripts/Globals.cs"
 ModLoader="*uid://brwx22baov3b0"
+SaveLevel="*uid://dr2ku723hkybo"
 
 [display]
 

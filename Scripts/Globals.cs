@@ -15,4 +15,5 @@ public partial class Globals : Node {
     public static int BackGroundBlue = 100;
 
     public static string SelectedObject = "Blocks/block";
+    public static string LevelData = "";
 }

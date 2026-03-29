@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c4drfg6jppttb" path="res://Assets/Textures/Objects/spike.png" id="6_ir51w"]
 [ext_resource type="Texture2D" uid="uid://bt28mha2spknu" path="res://Assets/Textures/Objects/Blocks/black-block.png" id="6_tpgpw"]
 [ext_resource type="Texture2D" uid="uid://chl8xa058nna3" path="res://Assets/Textures/Objects/Blocks/outline-block.png" id="7_2cc3p"]
+[ext_resource type="Script" uid="uid://b1gg6hlhvb16t" path="res://Scripts/PlaytestLogic.cs" id="7_7v7kd"]
 [ext_resource type="Texture2D" uid="uid://dxli8ocm1ia0u" path="res://Assets/Textures/Objects/short-spike.png" id="7_fx05v"]
 [ext_resource type="Texture2D" uid="uid://bih10wpd3y1n3" path="res://Assets/Textures/Objects/Pads/pad.png" id="7_ir51w"]
 [ext_resource type="Texture2D" uid="uid://cegfohnec8w83" path="res://Assets/Textures/Objects/Blocks/outline-block-variant1.png" id="8_8k47n"]
@@ -122,6 +123,14 @@ grow_vertical = 2
 theme = ExtResource("1_0hhuw")
 theme_override_font_sizes/font_size = 50
 text = "Play"
+script = ExtResource("5_dfuwn")
+ScenePath = "res://Scenes/Game.tscn"
+
+[node name="PlaytestLogic" type="Control" parent="CanvasLayer/Playtest" unique_id=1094899962]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_7v7kd")
 
 [node name="ObjectPicker" type="ColorRect" parent="CanvasLayer" unique_id=2019061090]
 anchors_preset = 2
@@ -516,3 +525,5 @@ layout_mode = 2
 theme = ExtResource("1_0hhuw")
 theme_override_font_sizes/font_size = 40
 text = "Options"
+
+[connection signal="pressed" from="CanvasLayer/Playtest" to="CanvasLayer/Playtest/PlaytestLogic" method="_on_playtest_pressed"]
