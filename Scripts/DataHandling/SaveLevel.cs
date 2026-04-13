@@ -3,6 +3,12 @@ using System;
 using System.Linq;
 
 public partial class SaveLevel : Node {
+    public static Func<Node, string> SaveLevelToDataAction;
+
+    public SaveLevel() {
+        SaveLevelToDataAction = (context) => SaveLevelToData(context);
+    }
+
     public static string SaveLevelToData(Node context) {
         string data = "";
         Node2D Objects = context.GetNode<Node2D>("/root/Editor/Objects");

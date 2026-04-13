@@ -3,6 +3,6 @@ using System;
 
 public partial class PlaytestLogic : Control {
     public void on_playtest_pressed() {
-        Globals.LevelData = SaveLevel.SaveLevelToData(this);
+        Globals.LevelData = SaveLevel.SaveLevelToDataAction.Invoke(this);
     }
 }
