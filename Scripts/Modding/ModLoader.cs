@@ -133,6 +133,11 @@ public partial class ModLoader : Node {
         // Parse the manifest to get mod metadata (currently we use "name" for the assembly name).
         var manifest = Json.ParseString(FileAccess.GetFileAsString(manifestPath)).AsGodotDictionary();
 
+        if (manifest["enabled"].ToString() == "0") {
+            GD.Print($"[ModLoader] Skipping disabled mod: {manifest["name"]}");
+            return;
+        }
+
         // Collect and parse all .cs files in the mod folder into Roslyn syntax trees.
         var sources = new List<SyntaxTree>();
         var dir = DirAccess.Open(modPath);
